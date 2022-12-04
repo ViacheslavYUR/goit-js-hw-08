@@ -9,8 +9,8 @@ const formRef = {
 };
 const formData = {};
 
-formRef.email.addEventListener('input', throttle(onInput, 1000));
-formRef.message.addEventListener('input', throttle(onInput, 1000));
+formRef.email.addEventListener('input', throttle(onInput, 500));
+formRef.message.addEventListener('input', throttle(onInput, 500));
 formRef.form.addEventListener('submit', onSubmitForm);
 
 function onInput(e) {
