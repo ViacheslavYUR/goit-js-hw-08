@@ -33,7 +33,7 @@ function populateForm() {
     console.log(JSON.parse(savedMessage));
 
     const { email, message } = JSON.parse(savedMessage);
-    formRef.email.value = email;
+    formRef.email.value = email || '';
     formRef.message.textContent = message;
   }
 }
