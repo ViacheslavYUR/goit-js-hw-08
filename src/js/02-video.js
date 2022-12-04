@@ -1,10 +1,17 @@
 import Player from '@vimeo/player';
 
-const player = new Player('handstick', {
-  id: 19231868,
-  width: 640,
-});
+const vimeoPlayer = document.querySelector('iframe');
+const player = new Player(vimeoPlayer);
 
-player.on('play', function () {
-  console.log('played the video!');
-});
+function catchTimeWatch(data) {
+  const saveTime = JSON.stringify(data);
+  localStorage.setItem('videoplayer-current-time', saveTime);
+}
+
+player.on('timeupdate', catchTimeWatch);
+
+const savedTime = JSON.parse(localStorage.getItem('videoplayer-current-time'));
+
+player.setCurrentTime(savedTime.seconds);
+
+// console.log(savedTime);
